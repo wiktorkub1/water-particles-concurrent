@@ -59,18 +59,18 @@ int main() {
     int iterator;
 
     if(pthread_create(th ,NULL ,&hydrogenProducer ,NULL ) != 0 ){
-        perror("Nie udalo sie stworzyc watku\n");
+        perror("Thread could not be created\n");
     }
     if(pthread_create(th + 1 ,NULL ,&oxygenProducer ,NULL ) != 0 ){
-        perror("Nie udalo sie stworzyc watku\n");
+        perror("Thread could not be created\n");
     }
     if(pthread_create(th + 2 ,NULL ,&waterCreation ,NULL ) != 0 ){
-        perror("Nie udalo sie stworzyc watku\n");
+        perror("Thread could not be created\n");
     }
 
     for(iterator = 0; iterator < THREAD_NUM; iterator++){
         if(pthread_join(th[iterator], NULL) != 0){
-            perror("Nie udalo sie uruchomic watku\n");
+            perror("Thread could not be started\n");
         }
     }
 
